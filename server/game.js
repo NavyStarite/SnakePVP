@@ -104,9 +104,7 @@ function gameLoop(state) {
 
     playerTwo.snake.push({ ...playerTwo.pos });
     playerTwo.snake.shift();
-    
-
-    
+ 
   }
   if (playerOne.vel.x || playerOne.vel.y) {
     for (let cell of playerTwo.snake) {
@@ -125,7 +123,6 @@ function gameLoop(state) {
         return 1;
       }
     }
-
     playerTwo.snake.push({ ...playerTwo.pos });
     playerTwo.snake.shift();
   }

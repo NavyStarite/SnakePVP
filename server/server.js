@@ -85,31 +85,43 @@ io.on('connection', client => {
       console.error(e);
       return;
     }
-    var vel;
+
     if(keyCode != null){
       //up
       if(keyCode == 38 && lastkeyCode != 40 && lastkeyCode != 38 ){
-        vel = getUpdatedVelocity(keyCode);
+        const vel = getUpdatedVelocity(keyCode);
+        if (vel) {
+          state[roomName].players[client.number - 1].vel = vel;
+        }
       }
       //down
       if(keyCode == 40 && lastkeyCode != 38 && lastkeyCode != 40 ){
-        vel = getUpdatedVelocity(keyCode);
+        const vel = getUpdatedVelocity(keyCode);
+        if (vel) {
+          state[roomName].players[client.number - 1].vel = vel;
+        }
       }
       //left
       if(keyCode == 37 && lastkeyCode != 39 && lastkeyCode != 37 ){
-        vel = getUpdatedVelocity(keyCode);
+        const vel = getUpdatedVelocity(keyCode);
+        if (vel) {
+          state[roomName].players[client.number - 1].vel = vel;
+        }
       }
       //right
       if(keyCode == 39 && lastkeyCode != 37 && lastkeyCode != 39 ){
-        vel = getUpdatedVelocity(keyCode);
+        const vel = getUpdatedVelocity(keyCode);
+        if (vel) {
+          state[roomName].players[client.number - 1].vel = vel;
+        }
       }
       lastkeyCode =keyCode;
     }
     
 
-    if (vel) {
-      state[roomName].players[client.number - 1].vel = vel;
-    }
+    //if (vel) {
+   //   state[roomName].players[client.number - 1].vel = vel;
+   // }
   }
 });
 
