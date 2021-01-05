@@ -107,7 +107,7 @@ function handleGameOver(data) {
     rematch = window.confirm("perdiste, ¿quieres jugar de nuevo?");
   }
   if(rematch == true){
-    gameScreen.style.display = "none";
+    reset();
   }
 }
 
