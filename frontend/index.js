@@ -1,6 +1,6 @@
 const BG_COLOUR = '#231f20';
-const SNAKE_COLOUR = '#c2c2c2';
-const SNAKE2_COLOUR = '#c2c2c2';
+const SNAKE_COLOUR = '#3dffe8';
+const SNAKE2_COLOUR = '#ff673d';
 const FOOD_COLOUR = '#e66916';
 
 const socket = io('https://snekpvp.herokuapp.com');
