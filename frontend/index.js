@@ -49,7 +49,7 @@ function init() {
 
   ctx.fillStyle = BG_COLOUR;
   ctx.fillRect(0, 0, canvas.width, canvas.height);
-  firstPaintGame(initialGameState);
+  firstPaintGame(initialGameState());
   document.addEventListener('keydown', keydown);
   gameActive = true;
 }
