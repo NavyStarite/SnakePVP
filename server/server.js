@@ -61,30 +61,49 @@ io.on('connection', client => {
       return;
     }
     try {
-      if(keyCode != null){
+      /*if(keyCode != null){
         //up
-        if(keyCode == 38 && lastkeyCode != 40||lastkeyCode != 38 ){
+        if(keyCode == 38 && lastkeyCode != 40){
           keyCode = parseInt(keyCode);
         }
         //down
-        if(keyCode == 40 && lastkeyCode != 38||lastkeyCode != 40 ){
+        if(keyCode == 40 && lastkeyCode != 38){
           keyCode = parseInt(keyCode);
         }
         //left
-        if(keyCode == 37 && lastkeyCode != 39 ||lastkeyCode != 37 ){
+        if(keyCode == 37 && lastkeyCode != 39 ){
           keyCode = parseInt(keyCode);
         }
         //right
-        if(keyCode == 39 && lastkeyCode != 37||lastkeyCode != 39 ){
+        if(keyCode == 39 && lastkeyCode != 37){
           keyCode = parseInt(keyCode);
-        }
+        //}
         lastkeyCode =keyCode;
-      }
+      }*/
+      keyCode = parseInt(keyCode);
     } catch(e) {
       console.error(e);
       return;
     }
-
+    if(keyCode != null){
+      //up
+      if(keyCode == 38 && lastkeyCode != 40){
+        const vel = getUpdatedVelocity(keyCode);
+      }
+      //down
+      if(keyCode == 40 && lastkeyCode != 38){
+        const vel = getUpdatedVelocity(keyCode);
+      }
+      //left
+      if(keyCode == 37 && lastkeyCode != 39 ){
+        const vel = getUpdatedVelocity(keyCode);
+      }
+      //right
+      if(keyCode == 39 && lastkeyCode != 37){
+        const vel = getUpdatedVelocity(keyCode);
+      }
+      lastkeyCode =keyCode;
+    }
     const vel = getUpdatedVelocity(keyCode);
 
     if (vel) {
