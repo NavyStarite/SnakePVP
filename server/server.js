@@ -85,26 +85,27 @@ io.on('connection', client => {
       console.error(e);
       return;
     }
+    var vel;
     if(keyCode != null){
       //up
       if(keyCode == 38 && lastkeyCode != 40){
-        const vel = getUpdatedVelocity(keyCode);
+        vel = getUpdatedVelocity(keyCode);
       }
       //down
       if(keyCode == 40 && lastkeyCode != 38){
-        const vel = getUpdatedVelocity(keyCode);
+        vel = getUpdatedVelocity(keyCode);
       }
       //left
       if(keyCode == 37 && lastkeyCode != 39 ){
-        const vel = getUpdatedVelocity(keyCode);
+        vel = getUpdatedVelocity(keyCode);
       }
       //right
       if(keyCode == 39 && lastkeyCode != 37){
-        const vel = getUpdatedVelocity(keyCode);
+        vel = getUpdatedVelocity(keyCode);
       }
       lastkeyCode =keyCode;
     }
-    //const vel = getUpdatedVelocity(keyCode);
+    
 
     if (vel) {
       state[roomName].players[client.number - 1].vel = vel;
