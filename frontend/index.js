@@ -45,7 +45,7 @@ function init() {
   canvas = document.getElementById('canvas');
   ctx = canvas.getContext('2d');
 
-  canvas.width = canvas.height = 600;
+  canvas.height = canvas.width;
 
   ctx.fillStyle = BG_COLOUR;
   ctx.fillRect(0, 0, canvas.width, canvas.height);
@@ -104,7 +104,7 @@ function handleGameOver(data) {
   if (data.winner === playerNumber) {
     alert('Ganaste!!');
   } else {
-    alert('El jugador: '+playerNumber+' gano!!');
+    alert('Perdiste');
   }
 }
 
