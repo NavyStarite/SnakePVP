@@ -48,7 +48,7 @@ function init() {
 
   ctx.fillStyle = BG_COLOUR;
   ctx.fillRect(0, 0, canvas.width, canvas.height);
-
+  paintGame(initialGameState);
   document.addEventListener('keydown', keydown);
   gameActive = true;
 }
@@ -74,7 +74,8 @@ function paintGame(state) {
 
 function paintPlayer(playerState, size, colour) {
   const snake = playerState.snake;
-
+  ctx.font = "10px Arial";
+  ctx.fillText(playerNumber,cell.x * size, cell.y * size);
   ctx.fillStyle = colour;
   for (let cell of snake) {
     ctx.fillRect(cell.x * size, cell.y * size, size, size);
@@ -102,9 +103,9 @@ function handleGameOver(data) {
   gameActive = false;
 
   if (data.winner === playerNumber) {
-    alert('You Win!');
+    alert('Ganaste!!');
   } else {
-    alert('You Lose :(');
+    alert('El jugador: '+playerNumber+' gano!!');
   }
 }
 
@@ -114,12 +115,12 @@ function handleGameCode(gameCode) {
 
 function handleUnknownCode() {
   reset();
-  alert('Unknown Game Code')
+  alert('Este no es un codigo valido')
 }
 
 function handleTooManyPlayers() {
   reset();
-  alert('This game is already in progress');
+  alert('Este juego esta lleno');
 }
 
 function reset() {
@@ -127,4 +128,45 @@ function reset() {
   gameCodeInput.value = '';
   initialScreen.style.display = "block";
   gameScreen.style.display = "none";
+}
+
+
+
+
+
+
+function initialGameState() {
+  return {
+    players: [{
+      pos: {
+        x: 3,
+        y: 10,
+      },
+      vel: {
+        x: 0,
+        y: 0,
+      },
+      snake: [
+        {x: 1, y: 10},
+        {x: 2, y: 10},
+        {x: 3, y: 10},
+      ],
+    }, {
+      pos: {
+        x: 18,
+        y: 10,
+      },
+      vel: {
+        x: 0,
+        y: 0,
+      },
+      snake: [
+        {x: 20, y: 10},
+        {x: 19, y: 10},
+        {x: 18, y: 10},
+      ],
+    }],
+    food: {},
+    gridsize: GRID_SIZE,
+  };
 }
