@@ -2,7 +2,7 @@ const io = require('socket.io')();
 const { initGame, gameLoop, getUpdatedVelocity } = require('./game');
 const { FRAME_RATE } = require('./constants');
 const { makeid } = require('./utils');
-
+var lastkeyCode;
 const state = {};
 const clientRooms = {};
 
@@ -56,11 +56,29 @@ io.on('connection', client => {
 
   function handleKeydown(keyCode) {
     const roomName = clientRooms[client.id];
+    
     if (!roomName) {
       return;
     }
     try {
-      keyCode = parseInt(keyCode);
+      if(keyCode != null){
+        //up
+        if(keyCode == 38 && lastkeyCode != 40||lastkeyCode != 38 ){
+          keyCode = parseInt(keyCode);
+        }
+        //down
+        if(keyCode == 40 && lastkeyCode != 38||lastkeyCode != 40 ){
+          keyCode = parseInt(keyCode);
+        }
+        //left
+        if(keyCode == 37 && lastkeyCode != 39 ||lastkeyCode != 37 ){
+          keyCode = parseInt(keyCode);
+        }
+        //right
+        if(keyCode == 39 && lastkeyCode != 37||lastkeyCode != 39 ){
+          keyCode = parseInt(keyCode);
+        }
+      }
     } catch(e) {
       console.error(e);
       return;
