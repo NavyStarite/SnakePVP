@@ -4,7 +4,7 @@ const SNAKE2_COLOUR = '#ff673d';
 const FOOD_COLOUR = '#e66916';
 
 const socket = io('https://snekpvp.herokuapp.com');
-
+ var rematch = false;
 socket.on('init', handleInit);
 socket.on('gameState', handleGameState);
 socket.on('gameOver', handleGameOver);
@@ -102,9 +102,12 @@ function handleGameOver(data) {
   gameActive = false;
 
   if (data.winner === playerNumber) {
-    alert('Ganaste!!');
+    rematch = window.confirm("Ganaste, ¿quieres jugar de nuevo?");
   } else {
-    alert('Perdiste');
+    rematch = window.confirm("perdiste, ¿quieres jugar de nuevo?");
+  }
+  if(rematch == true){
+    gameScreen.style.display = "none";
   }
 }
 
