@@ -48,7 +48,7 @@ function init() {
 
   ctx.fillStyle = BG_COLOUR;
   ctx.fillRect(0, 0, canvas.width, canvas.height);
-  paintGame(initialGameState);
+  firstPaintGame(initialGameState);
   document.addEventListener('keydown', keydown);
   gameActive = true;
 }
@@ -131,7 +131,14 @@ function reset() {
 }
 
 
-
+function firstPaintGame(state) {
+  ctx.fillStyle = BG_COLOUR;
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+  const gridsize = state.gridsize;
+  const size = canvas.width / gridsize;
+  paintPlayer(state.players[0], size, SNAKE_COLOUR);
+  paintPlayer(state.players[1], size, 'red');
+}
 
 
 
