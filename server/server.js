@@ -78,6 +78,7 @@ io.on('connection', client => {
         if(keyCode == 39 && lastkeyCode != 37||lastkeyCode != 39 ){
           keyCode = parseInt(keyCode);
         }
+        lastkeyCode =keyCode;
       }
     } catch(e) {
       console.error(e);
