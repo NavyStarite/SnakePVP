@@ -1,5 +1,6 @@
 const BG_COLOUR = '#231f20';
 const SNAKE_COLOUR = '#c2c2c2';
+const SNAKE2_COLOUR = '#c2c2c2';
 const FOOD_COLOUR = '#e66916';
 
 const socket = io('https://snekpvp.herokuapp.com');
@@ -69,13 +70,11 @@ function paintGame(state) {
   ctx.fillRect(food.x * size, food.y * size, size, size);
 
   paintPlayer(state.players[0], size, SNAKE_COLOUR);
-  paintPlayer(state.players[1], size, 'red');
+  paintPlayer(state.players[1], size, SNAKE2_COLOUR);
 }
 
 function paintPlayer(playerState, size, colour) {
   const snake = playerState.snake;
-  ctx.font = "10px Arial";
-  ctx.fillText(playerNumber,cell.x * size, cell.y * size);
   ctx.fillStyle = colour;
   for (let cell of snake) {
     ctx.fillRect(cell.x * size, cell.y * size, size, size);
@@ -137,7 +136,7 @@ function firstPaintGame(state) {
   const gridsize = state.gridsize;
   const size = canvas.width / gridsize;
   paintPlayer(state.players[0], size, SNAKE_COLOUR);
-  paintPlayer(state.players[1], size, 'red');
+  paintPlayer(state.players[1], size, SNAKE2_COLOUR);
 }
 
 
