@@ -88,19 +88,19 @@ io.on('connection', client => {
     var vel;
     if(keyCode != null){
       //up
-      if(keyCode == 38 && lastkeyCode != 40){
+      if(keyCode == 38 && lastkeyCode != 40 && lastkeyCode != 38 ){
         vel = getUpdatedVelocity(keyCode);
       }
       //down
-      if(keyCode == 40 && lastkeyCode != 38){
+      if(keyCode == 40 && lastkeyCode != 38 && lastkeyCode != 40 ){
         vel = getUpdatedVelocity(keyCode);
       }
       //left
-      if(keyCode == 37 && lastkeyCode != 39 ){
+      if(keyCode == 37 && lastkeyCode != 39 && lastkeyCode != 37 ){
         vel = getUpdatedVelocity(keyCode);
       }
       //right
-      if(keyCode == 39 && lastkeyCode != 37){
+      if(keyCode == 39 && lastkeyCode != 37 && lastkeyCode != 39 ){
         vel = getUpdatedVelocity(keyCode);
       }
       lastkeyCode =keyCode;
