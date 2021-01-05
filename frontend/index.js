@@ -173,6 +173,6 @@ function initialGameState() {
       ],
     }],
     food: {},
-    gridsize: GRID_SIZE,
+    gridsize: 20,
   };
 }
