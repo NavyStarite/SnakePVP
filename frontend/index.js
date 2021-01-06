@@ -7,7 +7,6 @@ var victory = new sound("victory.mp3");
 var apple = new sound("apple.wav");
 var over = new sound("over.wav");
 const socket = io('https://snekpvp.herokuapp.com');
- var rematch = false;
 socket.on('init', handleInit);
 socket.on('gameState', handleGameState);
 socket.on('gameOver', handleGameOver);
@@ -112,19 +111,16 @@ function handleGameOver(data) {
     myMusic.stop();
     victory.play();
     
-    rematch = window.confirm("Ganaste, ¿quieres jugar de nuevo?");
+    gameCodeDisplay.innerText = ("Ganaste, ¿quieres jugar de nuevo?");
   } else {
     myMusic.stop();
     over.play();
-    rematch = window.confirm("perdiste, ¿quieres jugar de nuevo?");
-  }
-  if(rematch == true){
-    reset();
+    gameCodeDisplay.innerText = ("perdiste, ¿quieres jugar de nuevo?");
   }
 }
 
 function handleGameCode(gameCode) {
-  gameCodeDisplay.innerText = gameCode;
+  gameCodeDisplay.innerText = "El codigo de tu juego es: " + gameCode;
 }
 
 function handleUnknownCode() {
