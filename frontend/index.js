@@ -134,11 +134,11 @@ function handleGameOver(data) {
     myMusic.stop();
     victory.play();
     
-    gameCodeDisplay.innerText = ("Ganaste, ¿quieres jugar de nuevo?");
+    gameCodeDisplay.innerText = ("Ganaste, Presiona (volver) para regresar a la pantalla principal.");
   } else {
     myMusic.stop();
     over.play();
-    gameCodeDisplay.innerText = ("perdiste, ¿quieres jugar de nuevo?");
+    gameCodeDisplay.innerText = ("Perdiste, Presiona (volver) para regresar a la pantalla principal.");
   }
 }
 
