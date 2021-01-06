@@ -3,6 +3,9 @@ const SNAKE_COLOUR = '#3dffe8';
 const SNAKE2_COLOUR = '#ff673d';
 const FOOD_COLOUR = '#e66916';
 var myMusic = new sound("back.mp3");
+var victory = new sound("victory.mp3");
+var apple = new sound("apple.wav");
+var over = new sound("over.wav");
 const socket = io('https://snekpvp.herokuapp.com');
  var rematch = false;
 socket.on('init', handleInit);
@@ -52,6 +55,7 @@ function init() {
   ctx.fillRect(0, 0, canvas.width, canvas.height);
   firstPaintGame(initialGameState());
   //myMusic = new sound("back.mp3");
+  myMusic.loop(true);
   myMusic.play();
   document.addEventListener('keydown', keydown);
   gameActive = true;
@@ -105,8 +109,13 @@ function handleGameOver(data) {
   gameActive = false;
 
   if (data.winner === playerNumber) {
+    myMusic.stop();
+    victory.play();
+    
     rematch = window.confirm("Ganaste, ¿quieres jugar de nuevo?");
   } else {
+    myMusic.stop();
+    over.play();
     rematch = window.confirm("perdiste, ¿quieres jugar de nuevo?");
   }
   if(rematch == true){
@@ -129,6 +138,7 @@ function handleTooManyPlayers() {
 }
 
 function reset() {
+  victory.stop();
   myMusic.stop();
   playerNumber = null;
   gameCodeInput.value = '';
@@ -196,5 +206,8 @@ function sound(src) {
   }
   this.stop = function(){
     this.sound.pause();
+  }
+  this.loop = function(confirmation){
+    this.sound.loop = confirmation;
   }
 }
