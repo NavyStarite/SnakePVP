@@ -55,7 +55,7 @@ function init() {
   ctx.fillRect(0, 0, canvas.width, canvas.height);
   firstPaintGame(initialGameState());
   //myMusic = new sound("back.mp3");
-  myMusic.loop(true);
+  myMusic.loop = true;
   myMusic.play();
   document.addEventListener('keydown', keydown);
   gameActive = true;
@@ -206,8 +206,5 @@ function sound(src) {
   }
   this.stop = function(){
     this.sound.pause();
-  }
-  this.loop = function(confirmation){
-    this.sound.loop = confirmation;
   }
 }
