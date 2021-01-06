@@ -2,7 +2,7 @@ const BG_COLOUR = '#231f20';
 const SNAKE_COLOUR = '#3dffe8';
 const SNAKE2_COLOUR = '#ff673d';
 const FOOD_COLOUR = '#e66916';
-
+var myMusic;
 const socket = io('https://snekpvp.herokuapp.com');
  var rematch = false;
 socket.on('init', handleInit);
@@ -51,6 +51,8 @@ function init() {
   ctx.fillStyle = BG_COLOUR;
   ctx.fillRect(0, 0, canvas.width, canvas.height);
   firstPaintGame(initialGameState());
+  myMusic = new sound("back.mp3");
+  myMusic.play();
   document.addEventListener('keydown', keydown);
   gameActive = true;
 }
