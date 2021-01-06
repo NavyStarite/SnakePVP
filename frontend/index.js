@@ -61,31 +61,10 @@ function init() {
   ctx.fillRect(0, 0, canvas.width, canvas.height);
   firstPaintGame(initialGameState());
   //myMusic = new sound("back.mp3");
-  myMusic.loop = true;
-  victory.loop = true;
-  if (typeof myMusic.loop == 'boolean')
-{
-  myMusic.loop = true;
-}
-else
-{
-  myMusic.addEventListener('ended', function() {
-        this.currentTime = 0;
-        this.play();
-    }, false);
-}
-if (typeof victory.loop == 'boolean')
-{
-  victory.loop = true;
-}
-else
-{
-  victory.addEventListener('ended', function() {
-        this.currentTime = 0;
-        this.play();
-    }, false);
-}
+  
   myMusic.play();
+  myMusic.loop = true;
+  victory.loop = true;
   document.addEventListener('keydown', keydown);
   gameActive = true;
 }
