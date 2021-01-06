@@ -63,7 +63,28 @@ function init() {
   //myMusic = new sound("back.mp3");
   myMusic.loop = true;
   victory.loop = true;
-  
+  if (typeof myMusic.loop == 'boolean')
+{
+  myMusic.loop = true;
+}
+else
+{
+  myMusic.addEventListener('ended', function() {
+        this.currentTime = 0;
+        this.play();
+    }, false);
+}
+if (typeof victory.loop == 'boolean')
+{
+  victory.loop = true;
+}
+else
+{
+  victory.addEventListener('ended', function() {
+        this.currentTime = 0;
+        this.play();
+    }, false);
+}
   myMusic.play();
   document.addEventListener('keydown', keydown);
   gameActive = true;
@@ -160,7 +181,6 @@ function firstPaintGame(state) {
   paintPlayer(state.players[0], size, SNAKE_COLOUR);
   paintPlayer(state.players[1], size, SNAKE2_COLOUR);
 }
-
 
 
 function initialGameState() {
