@@ -120,6 +120,7 @@ function handleGameState(gameState) {
   }
   gameState = JSON.parse(gameState);
   requestAnimationFrame(() => paintGame(gameState));
+  gameCodeDisplay.innerText = "Eres el jugador: "+playerNumber;
 }
 
 function handleGameOver(data) {
@@ -157,6 +158,7 @@ function handleTooManyPlayers() {
 }
 
 function reset() {
+  gameCodeDisplay.innerText = "Eres el jugador: ";
   victory.stop();
   myMusic.stop();
   playerNumber = null;
