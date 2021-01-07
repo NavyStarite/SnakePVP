@@ -9,6 +9,23 @@
   canvas{
     height: 80%;
   }
+#border {
+  -webkit-border-radius: 50px;
+-moz-border-radius: 50px;
+border-radius: 50px;
+background-color: #6bbaec;
+}
+.borderR {
+  -webkit-border-radius: 50px;
+-moz-border-radius: 50px;
+border-radius: 50px;
+}
+#borderG {
+  -webkit-border-radius: 50px;
+-moz-border-radius: 50px;
+border-radius: 50px;
+background-color: #28AFB0;
+}
 #gameScreen {
   display: none;
 }
@@ -26,43 +43,40 @@
 
       <div id="initialScreen" class="h-100">
         <div class="d-flex flex-column align-items-center justify-content-center h-100">
-          <div class="container">
+          <div class="container" id="borderG">
             <center>
-            <div class="row">
+            <div class="row" id="border">
               <div class="col-12">
+                <br><br><br><br>
                 <h1>Snek</h1>
                 <br><br><br><br>
               </div>
             </div>
-            <div class="row">
+            <div class="row" id="border">
               <div class="col-12">
-                <button
-              type="submit"
-              class="btn btn-primary"
-              id="newGameButton"
-            >
+                <br><br><br><br>
+                <button type="submit"  class="btn btn-primary" id="newGameButton">
               Crear nuevo juego
             </button>
             <br><br><br><br>
               </div>
             </div>
-            <div class="row">
+            <div class="row" id="border">
+
               <div class="col">
-                <button
-              type="submit"
-              class="btn btn-primary"
-              id="joinGameButton"
-            >
+                <br><br><br><br>
+                <button type="submit" class="btn btn-primary" id="joinGameButton">
               Unirte a un juego
             </button>
-            
+            <br><br><br><br>
               </div>
               <div class="col">
+                <br><br><br><br>
                 <div class="form-group">
                   <input type="text" placeholder="Codigo de Juego" id="gameCodeInput"/>
                 </div>
+                <br><br><br><br>
               </div>
-
             </div>
             </center>
           </div>
@@ -79,10 +93,10 @@
           <div class="container">
             <div class="row">
               <div class="col">
-                <div id=score1><h2>Jugador 1</h2></div>
+                <div id=score1 class="borderR"><center><h2>Jugador 1</h2></center></div>
               </div>
               <div class="col">
-              <div id=score2><h2>Jugador 2</h2></div>
+              <div id=score2 class="borderR"><center><h2>Jugador 2</h2></center></div>
               </div>
             </div>
 
